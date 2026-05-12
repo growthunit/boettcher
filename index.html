@@ -310,9 +310,131 @@ h3 { font-size: clamp(20px, 2.4vw, 32px); font-weight: 500; }
 
 .check-headline {
   font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  color: var(--blue-light); letter-spacing: 0.2em; margin-bottom: 16px;
+  color: var(--blue-light); letter-spacing: 0.2em; margin-bottom: 24px;
   text-transform: uppercase;
 }
+
+/* REFRAME BLOCK */
+.reframe-block {
+  padding: 48px 40px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(0,85,255,0.10), transparent 70%);
+  display: grid; gap: 14px;
+}
+@media (max-width: 720px) { .reframe-block { padding: 36px 28px; } }
+.reframe-eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--blue-light); letter-spacing: 0.25em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.reframe-row { display: flex; flex-direction: column; gap: 8px; }
+.reframe-lbl {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: var(--gray-2); letter-spacing: 0.2em; text-transform: uppercase;
+}
+.reframe-q {
+  font-size: clamp(20px, 2.6vw, 30px); font-weight: 500; line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.reframe-strike .reframe-q {
+  color: var(--gray); text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.25);
+  text-decoration-thickness: 2px;
+}
+.reframe-right .reframe-q { color: var(--white); font-weight: 600; }
+.reframe-right .reframe-q em { color: var(--blue); font-style: italic; font-weight: 500; }
+.reframe-arrow {
+  font-size: 22px; color: var(--blue); line-height: 1; margin: 4px 0;
+  display: flex; align-items: center; gap: 12px;
+}
+.reframe-arrow::before, .reframe-arrow::after {
+  content: ''; height: 1px; background: var(--line); flex: 0 0 24px;
+}
+.reframe-line {
+  margin-top: 16px; padding-top: 18px; border-top: 1px solid var(--line);
+  font-size: 14px; color: var(--white); line-height: 1.55; opacity: 0.92;
+}
+.reframe-line b { color: var(--blue-light); font-weight: 600; }
+
+/* CHECK GROUPS · vier Lücken */
+.check-groups { display: grid; gap: 28px; }
+.cg-header {
+  display: flex; align-items: baseline; gap: 14px;
+  padding-bottom: 12px; margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.cg-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+  color: var(--blue-light); letter-spacing: 0.2em;
+  background: var(--blue-soft); padding: 4px 9px; border-radius: 4px;
+}
+.cg-name {
+  font-size: 16px; font-weight: 600; color: var(--white); letter-spacing: -0.01em;
+}
+.cg-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 720px) { .cg-cards { grid-template-columns: 1fr; } }
+
+/* FIT · für wen wir arbeiten */
+.fit-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+  margin-top: 56px;
+}
+@media (max-width: 820px) { .fit-grid { grid-template-columns: 1fr; } }
+.fit-col { background: var(--bg); padding: 40px 36px; }
+.fit-yes { background: linear-gradient(135deg, rgba(0,85,255,0.10), transparent 70%); }
+.fit-header {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 26px;
+}
+.fit-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+  padding: 5px 11px; border-radius: 4px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+}
+.fit-yes .fit-tag { background: var(--blue); color: var(--white); }
+.fit-no .fit-tag { background: rgba(255,255,255,0.08); color: var(--gray-2); }
+.fit-title {
+  font-size: 16px; font-weight: 600; color: var(--white); letter-spacing: -0.01em;
+}
+.fit-list { list-style: none; display: grid; gap: 14px; }
+.fit-list li {
+  font-size: 15px; padding-left: 24px; position: relative; line-height: 1.45;
+}
+.fit-yes .fit-list li { color: var(--white); }
+.fit-no .fit-list li { color: var(--gray-2); }
+.fit-yes .fit-list li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 12px; height: 6px;
+  border-left: 1.5px solid var(--blue); border-bottom: 1.5px solid var(--blue);
+  transform: rotate(-45deg);
+}
+.fit-no .fit-list li::before {
+  content: ''; position: absolute; left: 2px; top: 11px;
+  width: 12px; height: 1px; background: var(--gray);
+}
+.fit-note {
+  margin-top: 24px; padding: 22px 28px;
+  background: var(--glass); border-left: 3px solid var(--blue);
+  border-radius: 0 14px 14px 0;
+  font-size: 15px; color: var(--white); line-height: 1.55; max-width: 80ch;
+  font-style: italic;
+}
+
+/* TEAM TAGLINE */
+.team-tagline {
+  margin-top: 28px; padding: 22px 28px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--glass);
+  display: flex; align-items: baseline; gap: 18px;
+}
+@media (max-width: 720px) { .team-tagline { flex-direction: column; gap: 8px; align-items: flex-start; padding: 18px 22px; } }
+.team-tagline-key {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--blue-light); letter-spacing: 0.2em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.team-tagline-text { font-size: 14px; color: var(--white); line-height: 1.55; opacity: 0.92; }
 .check-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
 .check-card {
   display: flex; align-items: center; gap: 16px;
@@ -1351,6 +1473,7 @@ footer {
     <a href="#einstieg">EINSTIEG</a>
     <a href="#vorgehen">WEG</a>
     <a href="#team">TEAM</a>
+    <a href="#fit">FIT</a>
     <a href="#vertrauen">BELEGE</a>
     <a href="#weiter">START</a>
   </div>
@@ -1490,17 +1613,51 @@ footer {
       </div>
     </div>
 
+    <div class="reframe-block reveal">
+      <div class="reframe-eyebrow">Der Reflex</div>
+      <div class="reframe-row reframe-strike">
+        <span class="reframe-lbl">Was die meisten zuerst fragen</span>
+        <span class="reframe-q">Wie bekommen wir mehr Anfragen?</span>
+      </div>
+      <div class="reframe-arrow">↓</div>
+      <div class="reframe-row reframe-right">
+        <span class="reframe-lbl">Was wir zuerst klären</span>
+        <span class="reframe-q">Warum werden <em>zwei Drittel</em> der bestehenden Anfragen nicht zu Aufträgen?</span>
+      </div>
+      <div class="reframe-line">Lead-Generierung ist selten das Problem. <b>Lead-Verwertung fast immer.</b></div>
+    </div>
+
     <div>
-      <div class="check-headline">Selbst-Check · Welche dieser acht Standards habt ihr heute schon im Setup?</div>
-      <div class="check-grid">
-        <div class="check-card reveal"><span class="box"></span><span class="text">Eingehende Anfragen aus Web, Telefon und Empfehlung laufen in einem zentralen System zusammen, mit klarer Owner-Logik je Kanal.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Jede neue Anfrage hat innerhalb von fünf Minuten einen verantwortlichen Bearbeiter, unabhängig davon, wer gerade Zeit hat.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Für Anfragen, die nicht direkt erreichbar sind, läuft eine automatische Wiedervorlage mit definierten Eskalationsstufen.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Jedes versendete Angebot hat einen verbindlichen Nachfass-Rhythmus, ohne dass jemand daran denken muss.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Wir können auf Knopfdruck in unter 30 Sekunden sagen, wie viele Angebote in welcher Phase offen sind, inklusive aktuellem Pipeline-Wert.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Verlustgründe werden strukturiert erfasst und sind über Zeiträume auswertbar, nicht nur über Bauchgefühl rekonstruierbar.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Die Übergabe vom Vertrieb an Werkstatt und Montage läuft über definierte Übergabepunkte, mit Aufmaß und Foto-Doku im selben System.</span></div>
-        <div class="check-card reveal"><span class="box"></span><span class="text">Nach der Abnahme greift ein definierter After-Sales-Prozess: automatische Bewertungsanfrage, Service-Touchpoints und Empfehlungslogik.</span></div>
+      <div class="check-headline">Selbst-Check · Vier Lücken, acht Standards. Was davon habt ihr heute schon im Setup?</div>
+      <div class="check-groups">
+        <div class="check-group">
+          <div class="cg-header"><span class="cg-num">01</span><span class="cg-name">Anfrage → Termin</span></div>
+          <div class="cg-cards">
+            <div class="check-card reveal"><span class="box"></span><span class="text">Eingehende Anfragen aus Web, Telefon und Empfehlung laufen in einem zentralen System zusammen, mit klarer Owner-Logik je Kanal.</span></div>
+            <div class="check-card reveal"><span class="box"></span><span class="text">Jede neue Anfrage hat innerhalb von fünf Minuten einen verantwortlichen Bearbeiter, unabhängig davon, wer gerade Zeit hat.</span></div>
+          </div>
+        </div>
+        <div class="check-group">
+          <div class="cg-header"><span class="cg-num">02</span><span class="cg-name">Angebot → Auftrag</span></div>
+          <div class="cg-cards">
+            <div class="check-card reveal"><span class="box"></span><span class="text">Für Anfragen, die nicht direkt erreichbar sind, läuft eine automatische Wiedervorlage mit definierten Eskalationsstufen.</span></div>
+            <div class="check-card reveal"><span class="box"></span><span class="text">Jedes versendete Angebot hat einen verbindlichen Nachfass-Rhythmus, ohne dass jemand daran denken muss.</span></div>
+          </div>
+        </div>
+        <div class="check-group">
+          <div class="cg-header"><span class="cg-num">03</span><span class="cg-name">CRM → Realität</span></div>
+          <div class="cg-cards">
+            <div class="check-card reveal"><span class="box"></span><span class="text">Wir können auf Knopfdruck in unter 30 Sekunden sagen, wie viele Angebote in welcher Phase offen sind, inklusive aktuellem Pipeline-Wert.</span></div>
+            <div class="check-card reveal"><span class="box"></span><span class="text">Die Übergabe vom Vertrieb an Werkstatt und Montage läuft über definierte Übergabepunkte, mit Aufmaß und Foto-Doku im selben System.</span></div>
+          </div>
+        </div>
+        <div class="check-group">
+          <div class="cg-header"><span class="cg-num">04</span><span class="cg-name">Daten → Entscheidung</span></div>
+          <div class="cg-cards">
+            <div class="check-card reveal"><span class="box"></span><span class="text">Verlustgründe werden strukturiert erfasst und sind über Zeiträume auswertbar, nicht nur über Bauchgefühl rekonstruierbar.</span></div>
+            <div class="check-card reveal"><span class="box"></span><span class="text">Nach der Abnahme greift ein definierter After-Sales-Prozess: automatische Bewertungsanfrage, Service-Touchpoints und Empfehlungslogik.</span></div>
+          </div>
+        </div>
       </div>
       <div class="diagnose-result reveal">
         <span class="count" id="diagCount">0&thinsp;/&thinsp;8</span>
@@ -2011,7 +2168,7 @@ footer {
         <ul class="bio-meta">
           <li>Knapp 10 Jahre Digitalisierung in Mittelstand und Konzern</li>
           <li>Projekte u. a. mit der Deutschen Bahn</li>
-          <li>Schwerpunkt: Prozessautomatisierung, CRM-Architektur, BAFA-geprüfter Berater</li>
+          <li>Schwerpunkt: Prozessautomatisierung, CRM-Architektur, geprüfter Förderberater</li>
         </ul>
       </div>
       <div class="bio">
@@ -2025,12 +2182,59 @@ footer {
       </div>
     </div>
   </div>
+
+  <div class="team-tagline reveal">
+    <span class="team-tagline-key">Inhabergeführt × Inhabergeführt</span>
+    <span class="team-tagline-text">Wir arbeiten am liebsten mit Geschäftsführungen, die operativ entscheiden und mit anfassen. Beide Seiten sparen Zeit, beide reden Klartext, niemand muss durch zehn Layer.</span>
+  </div>
+</section>
+
+<!-- FÜR WEN WIR ARBEITEN -->
+<section id="fit">
+  <div class="section-divider reveal">
+    <div class="section-num">08</div>
+    <div>
+      <div class="section-label">Wer passt</div>
+      <h2>Wir sind nicht<br>für jeden.</h2>
+    </div>
+  </div>
+
+  <div class="fit-grid">
+    <div class="fit-col fit-yes reveal">
+      <div class="fit-header">
+        <span class="fit-tag">Ja</span>
+        <span class="fit-title">Wir arbeiten gerne mit</span>
+      </div>
+      <ul class="fit-list">
+        <li>Inhabergeführten Unternehmen mit eigenem Vertriebsteam.</li>
+        <li>Häusern, die operativ entscheiden und mit anfassen.</li>
+        <li>Setups, in denen Prozess vor Werbung kommt.</li>
+        <li>Geschäftsführungen, die wissen, was sie wollen, und neugierig auf den Weg dahin bleiben.</li>
+      </ul>
+    </div>
+    <div class="fit-col fit-no reveal">
+      <div class="fit-header">
+        <span class="fit-tag">Nein</span>
+        <span class="fit-title">Wir arbeiten nicht gerne mit</span>
+      </div>
+      <ul class="fit-list">
+        <li>Konzernen mit Entscheidungswegen über zehn Layer.</li>
+        <li>Reinen Branding- oder Image-Briefings ohne operative Ambition.</li>
+        <li>Häusern, die „mal eben Ads testen" möchten.</li>
+        <li>Setups, die Veränderung im Tagesgeschäft nicht zulassen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fit-note reveal">
+    Klingt selbstbewusst. Ist es auch. Ein klares Nein ist die Voraussetzung für ein gutes Ja, auf beiden Seiten.
+  </div>
 </section>
 
 <!-- VERTRAUEN -->
 <section id="vertrauen">
   <div class="section-divider reveal">
-    <div class="section-num">08</div>
+    <div class="section-num">09</div>
     <div>
       <div class="section-label">Belege</div>
       <h2>Andere<br>vor euch.</h2>
@@ -2066,7 +2270,7 @@ footer {
 <!-- WAS ALS NÄCHSTES -->
 <section id="weiter">
   <div class="section-divider reveal">
-    <div class="section-num">09</div>
+    <div class="section-num">10</div>
     <div>
       <div class="section-label">Was als Nächstes</div>
       <h2>Wenn das<br>nach euch klingt.</h2>
@@ -2106,7 +2310,7 @@ footer {
 <!-- FAQ -->
 <section id="faq">
   <div class="section-divider reveal">
-    <div class="section-num">10</div>
+    <div class="section-num">11</div>
     <div>
       <div class="section-label">Klärung</div>
       <h2>Häufige<br>Fragen.</h2>
@@ -2222,7 +2426,7 @@ document.querySelectorAll('.paket-c-toggle').forEach(t => {
   t.addEventListener('click', () => t.parentElement.classList.toggle('open'));
 });
 
-const sections = ['hero','agenda','status-quo','loesung','einstieg','vorgehen','team','vertrauen','weiter','faq'];
+const sections = ['hero','agenda','status-quo','loesung','einstieg','vorgehen','team','fit','vertrauen','weiter','faq'];
 const links = document.querySelectorAll('#nav-links a');
 window.addEventListener('scroll', () => {
   const y = window.scrollY + 200;
